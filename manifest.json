@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Reading Companion",
+  "version": "1.0.0",
+  "description": "Summarize, translate, and proofread online articles with multimodal Q&A capabilities",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Smart Reading Companion",
+    "default_popup_width": 400,
+    "default_popup_height": 600
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

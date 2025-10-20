@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Reading Companion - Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Smart Reading Companion Settings</h1>
+            <p>Configure your API keys and preferences</p>
+        </header>
+
+        <div class="settings-container">
+            <!-- Prompt API Section -->
+            <section class="settings-section">
+                <h2>Built-in AI (Prompt API)</h2>
+                <p class="section-description">
+                    Google's built-in Gemini Nano model runs locally in your browser for privacy and speed.
+                </p>
+
+                <div class="api-key-group">
+                    <div class="api-key-item">
+                        <div class="api-key-header">
+                            <h3>Prompt API Status</h3>
+                            <span class="api-status" id="promptAPIStatus">Checking...</span>
+                        </div>
+                        <p class="api-description">
+                            Uses Google's Gemini Nano model built into Chrome. No API keys required.
+                        </p>
+                        <div class="prompt-api-info">
+                            <div id="promptAPIInfo" class="prompt-info-content">
+                                <div class="info-item">
+                                    <span class="info-label">Availability:</span>
+                                    <span id="promptAPIAvailability">Checking...</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Download Progress:</span>
+                                    <span id="promptAPIDownloadProgress">-</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Model Parameters:</span>
+                                    <span id="promptAPIParams">-</span>
+                                </div>
+                            </div>
+                            <div id="promptAPIDownloadBar" class="download-progress-bar" style="display: none;">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                                <span class="progress-text" id="progressText">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Preferences Section -->
+            <section class="settings-section">
+                <h2>Preferences</h2>
+                
+                <div class="preference-group">
+                    <div class="preference-item">
+                        <label for="defaultSummarizerLength">Default Summary Length</label>
+                        <select id="defaultSummarizerLength">
+                            <option value="short">Short</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="long">Long</option>
+                        </select>
+                        <p class="preference-description">
+                            Set the default length for text summaries.
+                        </p>
+                    </div>
+
+                    <div class="preference-item">
+                        <label for="defaultTargetLanguage">Default Translation Target</label>
+                        <select id="defaultTargetLanguage">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="ru">Russian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                        </select>
+                        <p class="preference-description">
+                            Set the default target language for translations.
+                        </p>
+                    </div>
+
+                    <div class="preference-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoHighlight">
+                            <span class="checkmark"></span>
+                            Auto-highlight selected text
+                        </label>
+                        <p class="preference-description">
+                            Automatically highlight text when selected for easier processing.
+                        </p>
+                    </div>
+
+                    <div class="preference-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="showNotifications">
+                            <span class="checkmark"></span>
+                            Show processing notifications
+                        </label>
+                        <p class="preference-description">
+                            Display notifications when text processing is complete.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Usage Statistics -->
+            <section class="settings-section">
+                <h2>Usage Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalSummaries">0</span>
+                        <span class="stat-label">Summaries</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalTranslations">0</span>
+                        <span class="stat-label">Translations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalProofreads">0</span>
+                        <span class="stat-label">Proofreads</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalQuestions">0</span>
+                        <span class="stat-label">Q&A Sessions</span>
+                    </div>
+                </div>
+                <button id="resetStats" class="reset-btn">Reset Statistics</button>
+            </section>
+
+            <!-- Save Button -->
+            <div class="save-section">
+                <button id="saveSettings" class="save-btn">Save Settings</button>
+                <div id="saveStatus" class="save-status"></div>
+            </div>
+        </div>
+
+        <!-- Help Section -->
+        <section class="help-section">
+            <h2>Need Help?</h2>
+            <div class="help-content">
+                <div class="help-item">
+                    <h3>Getting Started</h3>
+                    <p>1. The extension uses Google's built-in AI (no setup required)</p>
+                    <p>2. Select text on any webpage and use the extension</p>
+                    <p>3. The AI model will download automatically on first use</p>
+                </div>
+                <div class="help-item">
+                    <h3>Features</h3>
+                    <ul>
+                        <li><strong>Summarize:</strong> Get concise summaries of selected text</li>
+                        <li><strong>Translate:</strong> Translate text between multiple languages</li>
+                        <li><strong>Proofread:</strong> Check grammar and spelling errors</li>
+                        <li><strong>Q&A:</strong> Ask questions about selected text or images</li>
+                    </ul>
+                </div>
+                <div class="help-item">
+                    <h3>Privacy</h3>
+                    <p>All text processing happens locally in your browser using Google's built-in AI. No data is sent to external servers. We don't store or log any of your data.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

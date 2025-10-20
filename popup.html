@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Reading Companion</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body data-extension-popup>
+    <div class="container">
+        <header class="header">
+            <div class="header-top">
+                <h1>Smart Reading Companion</h1>
+                <div class="status-indicator" id="statusIndicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Ready</span>
+                </div>
+            </div>
+            <div class="ai-provider-indicator" id="aiProviderIndicator">
+                <span class="provider-text">Using Built-in AI</span>
+            </div>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="summarizer">Summarize</button>
+            <button class="tab-button" data-tab="translator">Translate</button>
+            <button class="tab-button" data-tab="proofreader">Proofread</button>
+            <button class="tab-button" data-tab="qa">Q&A</button>
+        </div>
+
+        <div class="tab-content">
+            <!-- Summarizer Tab -->
+            <div id="summarizer" class="tab-panel active">
+                <div class="input-section">
+                    <textarea id="summarizerText" placeholder="Selected text will appear here, or paste your text..."></textarea>
+                    <div class="controls">
+                        <select id="summarizerLength">
+                            <option value="short">Short Summary</option>
+                            <option value="medium" selected>Medium Summary</option>
+                            <option value="long">Long Summary</option>
+                        </select>
+                        <button id="summarizeBtn" class="action-btn">Summarize</button>
+                    </div>
+                </div>
+                <div class="output-section">
+                    <div class="output-header">
+                        <h3>Summary</h3>
+                        <button id="copySummary" class="copy-btn">Copy</button>
+                    </div>
+                    <div id="summaryOutput" class="output-content"></div>
+                </div>
+            </div>
+
+            <!-- Translator Tab -->
+            <div id="translator" class="tab-panel">
+                <div class="input-section">
+                    <textarea id="translatorText" placeholder="Text to translate..."></textarea>
+                    <div class="controls">
+                        <select id="sourceLanguage">
+                            <option value="auto">Auto-detect</option>
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="ru">Russian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                        </select>
+                        <select id="targetLanguage">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="it">Italian</option>
+                            <option value="pt">Portuguese</option>
+                            <option value="ru">Russian</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ko">Korean</option>
+                            <option value="zh">Chinese</option>
+                        </select>
+                        <button id="translateBtn" class="action-btn">Translate</button>
+                    </div>
+                </div>
+                <div class="output-section">
+                    <div class="output-header">
+                        <h3>Translation</h3>
+                        <button id="copyTranslation" class="copy-btn">Copy</button>
+                    </div>
+                    <div id="translationOutput" class="output-content"></div>
+                </div>
+            </div>
+
+            <!-- Proofreader Tab -->
+            <div id="proofreader" class="tab-panel">
+                <div class="input-section">
+                    <textarea id="proofreaderText" placeholder="Text to proofread..."></textarea>
+                    <div class="controls">
+                        <button id="proofreadBtn" class="action-btn">Proofread</button>
+                    </div>
+                </div>
+                <div class="output-section">
+                    <div class="output-header">
+                        <h3>Proofreading Results</h3>
+                        <button id="copyProofread" class="copy-btn">Copy</button>
+                    </div>
+                    <div id="proofreadOutput" class="output-content"></div>
+                </div>
+            </div>
+
+            <!-- Q&A Tab -->
+            <div id="qa" class="tab-panel">
+                <div class="input-section">
+                    <textarea id="qaText" placeholder="Selected text or image context..."></textarea>
+                    <div class="controls">
+                        <input type="file" id="imageUpload" accept="image/*" style="display: none;">
+                        <button id="uploadImage" class="upload-btn">Upload Image</button>
+                        <button id="askQuestion" class="action-btn">Ask Question</button>
+                    </div>
+                </div>
+                <div class="output-section">
+                    <div class="output-header">
+                        <h3>Q&A Response</h3>
+                        <button id="copyQA" class="copy-btn">Copy</button>
+                    </div>
+                    <div id="qaOutput" class="output-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="settingsBtn" class="settings-btn">Settings</button>
+            <div class="selected-text-info" id="selectedTextInfo">
+                <span id="selectedTextLength">0 characters selected</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

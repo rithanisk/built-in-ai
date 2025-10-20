@@ -1,0 +1,170 @@
+/* Content script styles for Smart Reading Companion */
+
+.smart-reading-highlight {
+    background-color: rgba(102, 126, 234, 0.3) !important;
+    border-radius: 3px !important;
+    padding: 1px 2px !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+.smart-reading-highlight:hover {
+    background-color: rgba(102, 126, 234, 0.5) !important;
+}
+
+.smart-reading-highlight.active {
+    background-color: rgba(102, 126, 234, 0.7) !important;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* Tooltip for highlighted text */
+.smart-reading-tooltip {
+    position: absolute !important;
+    background: #1f2937 !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    z-index: 10000 !important;
+    pointer-events: none !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    max-width: 200px !important;
+    word-wrap: break-word !important;
+}
+
+.smart-reading-tooltip::after {
+    content: '' !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    margin-left: -5px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    border-color: #1f2937 transparent transparent transparent !important;
+}
+
+/* Image overlay for Q&A */
+.smart-reading-image-overlay {
+    position: absolute !important;
+    background: rgba(102, 126, 234, 0.2) !important;
+    border: 2px solid #667eea !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    z-index: 1000 !important;
+    transition: all 0.2s !important;
+}
+
+.smart-reading-image-overlay:hover {
+    background: rgba(102, 126, 234, 0.3) !important;
+    border-color: #5a67d8 !important;
+}
+
+/* Loading indicator */
+.smart-reading-loading {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    z-index: 10000 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.smart-reading-loading-spinner {
+    width: 16px !important;
+    height: 16px !important;
+    border: 2px solid #e2e8f0 !important;
+    border-top: 2px solid #667eea !important;
+    border-radius: 50% !important;
+    animation: smart-reading-spin 1s linear infinite !important;
+}
+
+@keyframes smart-reading-spin {
+    0% { transform: rotate(0deg) !important; }
+    100% { transform: rotate(360deg) !important; }
+}
+
+/* Notification styles */
+.smart-reading-notification {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    z-index: 10000 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 14px !important;
+    max-width: 300px !important;
+    word-wrap: break-word !important;
+}
+
+.smart-reading-notification.success {
+    border-color: #10b981 !important;
+    background: #f0fdf4 !important;
+    color: #059669 !important;
+}
+
+.smart-reading-notification.error {
+    border-color: #dc2626 !important;
+    background: #fef2f2 !important;
+    color: #dc2626 !important;
+}
+
+/* Selection overlay */
+.smart-reading-selection-overlay {
+    position: absolute !important;
+    background: rgba(102, 126, 234, 0.1) !important;
+    border: 1px solid rgba(102, 126, 234, 0.3) !important;
+    pointer-events: none !important;
+    z-index: 999 !important;
+}
+
+/* Context menu styles */
+.smart-reading-context-menu {
+    position: fixed !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    z-index: 10000 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-size: 12px !important;
+    min-width: 150px !important;
+    overflow: hidden !important;
+}
+
+.smart-reading-context-menu-item {
+    padding: 8px 12px !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.smart-reading-context-menu-item:hover {
+    background: #f8fafc !important;
+}
+
+.smart-reading-context-menu-item:active {
+    background: #e2e8f0 !important;
+}
+
+.smart-reading-context-menu-divider {
+    height: 1px !important;
+    background: #e2e8f0 !important;
+    margin: 4px 0 !important;
+}
